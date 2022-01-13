@@ -10,12 +10,6 @@ This is a web application with REST endpoints for managing a todo list (a list o
 
 Your job is to finish the application according to the user stories defined below. Please test your solution as you think best. Please ask as many questions as you think is necessary.
 
-Prerequisites
--------------
-
-* Install Git
-* Install Maven
-* Install an IDE or editor of your choice
 
 User Stories
 ------------
@@ -44,14 +38,6 @@ The following user stories are considered to be bonus functionality and are not 
 3. As a todo list manager, I need a REST endpoint to list all tasks grouped by todo list.
 4. As a todo list manager, I need a REST endpoint to delete todo lists.
 
-Evaluation Criteria
--------------------
-
-* Correctness
-* Knowledge of Java and relevant libraries and frameworks
-* Coding style / readability
-* Testing approach
-* Git usage (small, logically distinct commits with meaningful commit messages)
 
 Getting Started
 ---------------
