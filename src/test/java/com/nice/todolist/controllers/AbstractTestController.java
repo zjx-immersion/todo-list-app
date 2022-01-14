@@ -7,6 +7,7 @@ package com.nice.todolist.controllers;
 
 import java.util.Properties;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.MessageSource;
@@ -26,17 +27,21 @@ import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class AbstractControllerTest {
+public class AbstractTestController {
 
 	protected MockMvc mockMvc;
-	
+
+    @Test
+    public void contextLoads() {
+    }
+
 	protected void setUp(BaseController controller) {
 		mockMvc = MockMvcBuilders.standaloneSetup(controller)
 								 .setHandlerExceptionResolvers(exceptionResolver())
                                  .setValidator(validator())
                                  .build();
 	}
-	
+
 	private HandlerExceptionResolver exceptionResolver() {
         SimpleMappingExceptionResolver exceptionResolver = new SimpleMappingExceptionResolver();
  
@@ -61,7 +66,7 @@ public class AbstractControllerTest {
         exceptionResolver.setStatusCodes(statusCodes);
         return exceptionResolver;
     }
- 
+
     private MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
  
@@ -70,7 +75,7 @@ public class AbstractControllerTest {
  
         return messageSource;
     }
- 
+
     private LocalValidatorFactoryBean validator() {
         return new LocalValidatorFactoryBean();
     }

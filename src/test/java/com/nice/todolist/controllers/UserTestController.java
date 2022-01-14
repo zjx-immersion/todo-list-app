@@ -44,7 +44,7 @@ import com.nice.todolist.util.UserDtoBuilder;
  * @author Shekar Nyala
  *
  */
-public class UserControllerTest extends AbstractControllerTest {
+public class UserTestController extends AbstractTestController {
 	
 	//private MockMvc mockMvc;
 
@@ -59,7 +59,7 @@ public class UserControllerTest extends AbstractControllerTest {
     private UserController userController;
 
     @Before
-    public void setUp() {
+    public void setUping() {
     	//Mockito.reset(userServiceMock);
     	// Initialize Mockito annotated components
     	initMocks(this);
