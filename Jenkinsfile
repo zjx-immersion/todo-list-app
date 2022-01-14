@@ -67,7 +67,7 @@ stage('Deploy to k8s') {
     node {
         withEnv([
             'SERVICE=todo-list-app',
-            'NAMESPACE=1.0'
+            'NAMESPACE=default'
         ]){
             /* Apply all manifest files */
             sh "pwd"
