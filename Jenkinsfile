@@ -63,7 +63,7 @@ stage('Build image') {
     }
 }
 
-stage('Deploy to k8s') {
+stage('Deploy to k8s') { 
     node {
         withEnv([
             'SERVICE=todo-list-app',
