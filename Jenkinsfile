@@ -67,6 +67,7 @@ stage('Deploy to k8s') {
     node {
         withEnv([
             'SERVICE=todo-list-app',
+            'TAG=1.0',
             'NAMESPACE=default'
         ]){
             /* Apply all manifest files */
