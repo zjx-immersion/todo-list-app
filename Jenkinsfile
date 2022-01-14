@@ -56,7 +56,7 @@ stage('Build image') {
             'TAG=1.0'
         ]){
         /* Build the docker image */
-            sh "echo clear <none docker images>"
+            echo "clear <none docker images>"
             sh "./ci-build/clear-images.sh"
             sh "docker build --no-cache -t ${SERVICE}:${TAG} ."
         }
