@@ -38,7 +38,7 @@ pipeline {
 
         stage('Deliver') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                sh './ci-build/deliver.sh'
             }
             post {
                 always {
@@ -57,7 +57,7 @@ stage('Build image') {
         ]){
         /* Build the docker image */
             sh "echo clear <none docker images>"
-            sh "docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")"
+            sh "./ci-build/clear-images.sh"
             sh "docker build --no-cache -t ${SERVICE}:${TAG} ."
         }
     }
