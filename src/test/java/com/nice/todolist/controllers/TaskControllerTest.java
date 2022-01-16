@@ -169,39 +169,39 @@ public class TaskControllerTest {
         verifyNoMoreInteractions(taskServiceMock);
     }
 
-//    @Test
-//    public void findById_TaskEntryFound_ShouldReturnFoundTaskEntry() throws Exception {
-//        Task found = TestUtil.getTestTask();
-//
-//        when(taskServiceMock.findById(1L)).thenReturn(found);
-//
-//        mockMvc.perform(get("/api/tasks/{id}", 1L)
-//        		.contentType(TestUtil.APPLICATION_JSON_UTF8)
-//                .accept(TestUtil.APPLICATION_JSON_UTF8)
-//        )
-//                .andExpect(status().isOk())
-//                .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
-//                .andExpect(jsonPath("$.id", is(1)))
-//                .andExpect(jsonPath("$.name", is("taskName")))
-//                .andExpect(jsonPath("$.description", is("taskDescription")));
-//
-//        verify(taskServiceMock, times(1)).findById(1L);
-//        verifyNoMoreInteractions(taskServiceMock);
-//    }
+    @Test
+    public void findById_TaskEntryFound_ShouldReturnFoundTaskEntry() throws Exception {
+        Task found = TestUtil.getTestTask();
 
-//    @Test
-//    public void findById_TaskEntryNotFound_ShouldReturnHttpStatusCode404() throws Exception {
-//    	when(taskServiceMock.findById(1L)).thenThrow(new TodoNotFoundException(""));
-//
-//        mockMvc.perform(get("/api/tasks/{id}", 1L)
-//        		.contentType(TestUtil.APPLICATION_JSON_UTF8)
-//                .accept(TestUtil.APPLICATION_JSON_UTF8)
-//        )
-//                .andExpect(status().isNotFound());
-//
-//        verify(taskServiceMock, times(1)).findById(1L);
-//        verifyNoMoreInteractions(taskServiceMock);
-//    }
+        when(taskServiceMock.findById(1L)).thenReturn(found);
+
+        mockMvc.perform(get("/api/tasks/{id}", 1L)
+        		.contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .accept(TestUtil.APPLICATION_JSON_UTF8)
+        )
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("$.id", is(1)))
+                .andExpect(jsonPath("$.name", is("taskName")))
+                .andExpect(jsonPath("$.description", is("taskDescription")));
+
+        verify(taskServiceMock, times(1)).findById(1L);
+        verifyNoMoreInteractions(taskServiceMock);
+    }
+
+    @Test
+    public void findById_TaskEntryNotFound_ShouldReturnHttpStatusCode404() throws Exception {
+    	when(taskServiceMock.findById(1L)).thenThrow(new TodoNotFoundException(""));
+
+        mockMvc.perform(get("/api/tasks/{id}", 1L)
+        		.contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .accept(TestUtil.APPLICATION_JSON_UTF8)
+        )
+                .andExpect(status().isNotFound());
+
+        verify(taskServiceMock, times(1)).findById(1L);
+        verifyNoMoreInteractions(taskServiceMock);
+    }
 
     @Test
     public void update_TaskNameIsTooLong_ShouldReturnValidationErrorsForTaskName() throws Exception {
